@@ -122,8 +122,8 @@ export function Navbar() {
           </nav>
 
           {/* Search Bar & Theme Toggle */}
-          <div className="flex items-center gap-2">
-            <div className="relative">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="relative hidden sm:block">
               <div className="relative flex items-center">
                 <Search className="w-4 h-4 text-[#9090A8] absolute left-3 pointer-events-none" />
                 <input
@@ -133,7 +133,7 @@ export function Navbar() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setSearchFocused(true)}
                   onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
-                  className="w-28 xs:w-36 sm:w-56 lg:w-64 pl-9 pr-3 py-1.5 text-xs bg-[#12121A] border border-[#2A2A3A] rounded-lg text-[#F0F0F5] placeholder-[#606078] focus:outline-none focus:border-[#7C5CFC] focus:ring-1 focus:ring-[#7C5CFC] transition-all"
+                  className="w-40 sm:w-56 lg:w-64 pl-9 pr-3 py-1.5 text-xs bg-[#12121A] border border-[#2A2A3A] rounded-lg text-[#F0F0F5] placeholder-[#606078] focus:outline-none focus:border-[#7C5CFC] focus:ring-1 focus:ring-[#7C5CFC] transition-all"
                 />
               </div>
 
@@ -175,7 +175,32 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[#2A2A3A] bg-[#0F0F12] px-4 pt-2 pb-6 space-y-3">
+        <div className="md:hidden border-b border-[#2A2A3A] bg-[#0F0F12] px-4 pt-3 pb-6 space-y-3">
+          {/* Mobile Search input */}
+          <div className="relative mb-3">
+            <Search className="w-4 h-4 text-[#9090A8] absolute left-3 top-2.5 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search tools..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 text-xs bg-[#12121A] border border-[#2A2A3A] rounded-lg text-[#F0F0F5] placeholder-[#606078] focus:outline-none focus:border-[#7C5CFC]"
+            />
+            {searchQuery.trim() && searchResults.length > 0 && (
+              <div className="mt-2 rounded-xl border border-[#2A2A3A] bg-[#161620] p-2 space-y-1">
+                {searchResults.map((tool) => (
+                  <button
+                    key={tool.id}
+                    onClick={() => handleSelectTool(tool.slug)}
+                    className="w-full text-left px-3 py-1.5 rounded-lg hover:bg-[#1F1F2E] flex flex-col transition-colors"
+                  >
+                    <span className="text-xs font-medium text-[#F0F0F5]">{tool.name}</span>
+                    <span className="text-[10px] text-[#9090A8] truncate">{tool.shortDescription}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
