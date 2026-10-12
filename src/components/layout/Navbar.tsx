@@ -133,7 +133,7 @@ export function Navbar() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setSearchFocused(true)}
                   onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
-                  className="w-40 sm:w-56 lg:w-64 pl-9 pr-3 py-1.5 text-xs bg-[#12121A] border border-[#2A2A3A] rounded-lg text-[#F0F0F5] placeholder-[#606078] focus:outline-none focus:border-[#7C5CFC] focus:ring-1 focus:ring-[#7C5CFC] transition-all"
+                  className="w-28 xs:w-36 sm:w-56 lg:w-64 pl-9 pr-3 py-1.5 text-xs bg-[#12121A] border border-[#2A2A3A] rounded-lg text-[#F0F0F5] placeholder-[#606078] focus:outline-none focus:border-[#7C5CFC] focus:ring-1 focus:ring-[#7C5CFC] transition-all"
                 />
               </div>
 

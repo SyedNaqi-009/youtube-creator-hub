@@ -23,7 +23,7 @@ export function ToolLayout({
   children,
 }: ToolLayoutProps) {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-5xl mx-auto px-3.5 sm:px-6 py-4 sm:py-8 overflow-hidden">
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
@@ -34,20 +34,20 @@ export function ToolLayout({
       />
 
       {/* Tool Header */}
-      <header className="mb-6">
+      <header className="mb-4 sm:mb-6">
         <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#7C5CFC]/10 border border-[#7C5CFC]/20 text-[#7C5CFC] text-xs font-semibold uppercase tracking-wider mb-2">
           {categoryName}
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#F0F0F5] tracking-tight mb-2">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#F0F0F5] tracking-tight mb-2 break-words">
           {toolName}
         </h1>
-        <p className="text-sm text-[#9090A8] max-w-3xl leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#9090A8] max-w-3xl leading-relaxed">
           {shortDescription}
         </p>
       </header>
 
       {/* Interactive Tool Interface Area */}
-      <div className="p-5 sm:p-7 rounded-2xl bg-[#161620] border border-[#242436] shadow-xl shadow-black/20 mb-12">
+      <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl bg-[#161620] border border-[#242436] shadow-xl shadow-black/20 mb-8 sm:mb-12 overflow-x-hidden">
         {children}
       </div>
 
